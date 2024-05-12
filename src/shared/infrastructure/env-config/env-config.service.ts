@@ -7,10 +7,10 @@ export class EnvConfigService implements EnvConfig {
   constructor(private configService: ConfigService) {}
 
   getAppPort(): number {
-    throw new Error('Method not implemented.')
+    return Number(this.configService.get<number>('PORT'))
   }
 
   getNodeEnv(): string {
-    throw new Error('Method not implemented.')
+    return this.configService.get<string>('NODE_ENV')
   }
 }
